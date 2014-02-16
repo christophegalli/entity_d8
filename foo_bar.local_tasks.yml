@@ -1,0 +1,17 @@
+foo_bar.settings_tab:
+  route_name: foo_bar.settings
+  title: 'Settings'
+  base_route: foo_bar.settings
+foo_bar.view:
+  route_name: foo_bar.view
+  base_route: foo_bar.view
+  title: 'View'
+foo_bar.page_edit:
+  route_name: foo_bar.edit
+  base_route: foo_bar.view
+  title: Edit
+foo_bar.delete_confirm:
+  route_name: foo_bar.delete
+  base_route: foo_bar.view
+  title: Delete
+  weight: 10

@@ -1,0 +1,67 @@
+<?php
+/**
+ * @file
+ * Install routines for foo_bar module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function foo_bar_schema() {
+  $schema['foo_bar'] = array(
+    'description' => 'Stores FooBar items.',
+    'fields' => array(
+      'fbid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique FooBar item ID.',
+      ),
+      'uuid' => array(
+        'description' => 'Unique Key: Universally unique identifier for this entity.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+      ),
+      'type' => array(
+        'description' => 'The bundle of the FooBar entity.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'langcode' => array(
+        'description' => 'The {language}.langcode of the original variant of this FoBar entity.',
+        'type' => 'varchar',
+        'length' => 12,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'name' => array(
+        'description' => 'The name of the FooBar entity.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'user_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => NULL,
+        'description' => 'The {users}.uid of the associated user.',
+      ),
+      'foo_bar_field' => array(
+        'description' => 'Additional field for the FooBar entity.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => FALSE,
+        'default' => '',
+      ),
+    ),
+    'primary key' => array('fbid'),
+    'unique keys' => array(
+      'uuid' => array('uuid'),
+    ),
+  );
+  return $schema;
+}

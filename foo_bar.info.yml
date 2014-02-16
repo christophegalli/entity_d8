@@ -1,0 +1,4 @@
+name: Foo Bar
+type: module
+description: 'Provides FooBar entity.'
+core: 8.x

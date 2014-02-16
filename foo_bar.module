@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Contains Drupal\foo_bar\foo_bar.module
+ */
+
+/**
+ * Implements hook_menu_link_defaults().
+ */
+function foo_bar_menu_link_defaults() {
+  $links = array();
+  $links['foo_bar.admin.structure.settings'] = array(
+    'link_title' => 'Foo Bar Settings',
+    'description' => 'Configure foo_bar entity',
+    'route_name' => 'foo_bar.settings',
+    'parent' => 'system.admin.structure',
+  );
+  $links['foo_bar.list'] = array(
+    'link_title' => 'Foo Bar Listing',
+    'description' => 'List FooBar content',
+    'route_name' => 'foo_bar.list',
+  );
+  return $links;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function foo_bar_permission() {
+  return array(
+    'delete_foo_bar' => array(
+      'title' => t('Delete entity content.'),
+    ),
+    'add_foo_bar' => array(
+      'title' => t('Add entity content'),
+    ),
+    'view_foo_bar' => array(
+      'title' => t('View entity content'),
+    ),
+    'edit_foo_bar' => array(
+      'title' => t('Edit entity content'),
+    ),
+    'admin_foo_bar' => array(
+      'title' => t('Administer settings'),
+    ),
+  );
+}

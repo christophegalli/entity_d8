@@ -1,0 +1,5 @@
+foo_bar.add:
+  route_name: foo_bar.add
+  title: 'Add Foo Bar Content'
+  appears_on:
+    - foo_bar.list

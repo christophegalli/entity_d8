@@ -1,0 +1,42 @@
+foo_bar.view:
+  path: '/foo-bar/{foo_bar}'
+  defaults:
+    _entity_view: 'foo_bar'
+    _title: 'Foo Bar Content'
+  requirements:
+    _permission: 'view_foo_bar'
+foo_bar.list:
+  path: '/foo-bar/list'
+  defaults:
+    _entity_list: 'foo_bar'
+    _title: 'Foo Bar Content List'
+  requirements:
+    _permission: 'view_foo_bar'
+foo_bar.add:
+  path: '/foo-bar/add'
+  defaults:
+    _entity_form: foo_bar.add
+    _title: 'Add foo bar Content'
+  requirements:
+    _permission: 'add_foo_bar'
+foo_bar.edit:
+  path: '/foo-bar/{foo_bar}/edit'
+  defaults:
+    _entity_form: foo_bar.edit
+    _title: 'Edit foo bar content'
+  requirements:
+    _permission: 'edit_foo_bar'
+foo_bar.delete:
+  path: '/foo-bar/{foo_bar}/delete'
+  defaults:
+    _entity_form: foo_bar.delete
+    _title: 'Delete foo bar Content '
+  requirements:
+    _permission: 'delete_foo_bar'
+foo_bar.settings:
+  path: 'admin/config/foo_bar_settings'
+  defaults:
+   _form: '\Drupal\foo_bar\Entity\Form\FooBarSettingsForm'
+   _title: 'FooBar Settings'
+  requirements:
+    _permission: 'admin_foo_bar'
