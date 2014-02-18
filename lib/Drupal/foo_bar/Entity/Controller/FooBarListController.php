@@ -31,7 +31,7 @@ class FooBarListController extends EntityListController {
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\foo_bar\Entity\FooBar */
     $row['id'] = $entity->id();
-    $row['label'] = $this->getLabel($entity);
+    $row['label'] = l($this->getLabel($entity), 'foo-bar/' . $entity->id());
     $row['foo_bar_field'] = $entity->getFooBarField();
     return $row + parent::buildRow($entity);
   }

@@ -11,11 +11,10 @@ use Drupal\foo_bar\FooBarInterface;
 /**
  * Defines the Foo Bar entity.
  *
- * @EntityType(
+ * @ContentEntityType(
  *   id = "foo_bar",
  *   label = @Translation("FooBar entity"),
  *   controllers = {
- *     "storage" = "Drupal\Core\Entity\FieldableDatabaseStorageController",
  *     "view_builder" = "Drupal\foo_bar\Entity\FooBarViewBuilder",
  *     "list" = "Drupal\foo_bar\Entity\Controller\FooBarListController",
  *
