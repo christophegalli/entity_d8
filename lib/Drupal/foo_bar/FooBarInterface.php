@@ -26,12 +26,12 @@ interface FooBarInterface extends EntityInterface {
    * @return string
    *   The UUID of the entity.
    */
-  public function uuid();
+  public function getUuid();
   /**
-   * Return the Value of Foo Bar Field.
+   * Return the Value of Foo Bar uuid.
    *
-   * @return string
-   *   The content of the field.
+   * @return uuid
+   *   The uuid.
    */
   public function getFooBarField();
   /**

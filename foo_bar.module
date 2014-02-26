@@ -46,3 +46,15 @@ function foo_bar_permission() {
     ),
   );
 }
+
+/**
+ * Implements hook_theme.
+ */
+function foo_bar_theme() {
+  return array(
+    'foo_bar' => array(
+      'render element' => 'elements',
+      'template' => 'foo_bar',
+    ),
+  );
+}

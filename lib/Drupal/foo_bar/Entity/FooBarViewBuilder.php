@@ -23,8 +23,8 @@ class FooBarViewBuilder extends EntityViewBuilder {
     foreach ($entities as $entity) {
       $entity->content['foo_bar']['name'] = array(
         '#markup' => $entity->name->value,
-        '#prefix' => '<div class="foo-bar-label">' ,
-        '#suffix' => '</div>',
+        '#prefix' => '<h1 class="foo-bar-label">' ,
+        '#suffix' => '</h1>',
       );
       $entity->content['foo_bar']['foo_bar_field'] = array(
         '#markup' => $entity->getFooBarField(),

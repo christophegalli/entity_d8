@@ -51,7 +51,7 @@ class FooBar extends ContentEntityBase implements FooBarInterface {
   /**
    * {@inheritdoc}
    */
-  public function uuid() {
+  public function getUuid() {
     return $this->uuid->value;
   }
   /**
