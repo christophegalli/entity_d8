@@ -5,9 +5,11 @@
  */
 
 namespace Drupal\foo_bar\Entity;
+
 use Drupal\Core\Field\FieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\foo_bar\FooBarInterface;
+
 /**
  * Defines the Foo Bar entity.
  *
@@ -17,7 +19,6 @@ use Drupal\foo_bar\FooBarInterface;
  *   controllers = {
  *     "view_builder" = "Drupal\foo_bar\Entity\FooBarViewBuilder",
  *     "list" = "Drupal\foo_bar\Controller\FooBarListController",
- *
  *     "form" = {
  *       "add" = "Drupal\foo_bar\Form\FooBarFormController",
  *       "edit" = "Drupal\foo_bar\Form\FooBarFormController",
@@ -26,9 +27,9 @@ use Drupal\foo_bar\FooBarInterface;
  *     "translation" = "Drupal\content_translation\ContentTranslationController"
  *   },
  *   base_table = "foo_bar",
- *   admin_permission = "administer display modes",
+ *   admin_permission = "admin_foo_bar",
  *   fieldable = TRUE,
- *   field_cache = FALSE,
+ *   translatable = TRUE,
  *   entity_keys = {
  *     "id" = "fbid",
  *     "label" = "name",
