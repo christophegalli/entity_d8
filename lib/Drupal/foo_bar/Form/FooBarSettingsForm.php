@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * Defines Drupal\foo_bar\Entity\Form\FooBarSettingsForm.
+ * Defines Drupal\foo_bar\Form\FooBarSettingsForm.
  */
 
-namespace Drupal\foo_bar\Entity\Form;
+namespace Drupal\foo_bar\Form;
 
 use Drupal\Core\Form\FormBase;
 

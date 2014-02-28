@@ -5,7 +5,7 @@
  * Contains \Drupal\foo_bar\Entity\Frm\FooBarDeleteForm
  */
 
-namespace Drupal\foo_bar\Entity\Form;
+namespace Drupal\foo_bar\Form;
 
 use Drupal\Core\Entity\ContentEntityConfirmFormBase;
 

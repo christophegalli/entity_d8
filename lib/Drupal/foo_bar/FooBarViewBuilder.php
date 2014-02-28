@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\foo_bar\Entity\FooBarViewBuilder.
+ * Contains \Drupal\foo_bar\FooBarViewBuilder.
  */
 
-namespace Drupal\foo_bar\Entity;
+namespace Drupal\foo_bar;
 
 use Drupal\Core\Entity\EntityViewBuilder;
 

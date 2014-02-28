@@ -16,12 +16,12 @@ use Drupal\foo_bar\FooBarInterface;
  *   label = @Translation("FooBar entity"),
  *   controllers = {
  *     "view_builder" = "Drupal\foo_bar\Entity\FooBarViewBuilder",
- *     "list" = "Drupal\foo_bar\Entity\Controller\FooBarListController",
+ *     "list" = "Drupal\foo_bar\Controller\FooBarListController",
  *
  *     "form" = {
- *       "add" = "Drupal\foo_bar\Entity\Form\FooBarFormController",
- *       "edit" = "Drupal\foo_bar\Entity\Form\FooBarFormController",
- *       "delete" = "Drupal\foo_bar\Entity\Form\FooBarDeleteForm",
+ *       "add" = "Drupal\foo_bar\Form\FooBarFormController",
+ *       "edit" = "Drupal\foo_bar\Form\FooBarFormController",
+ *       "delete" = "Drupal\foo_bar\Form\FooBarDeleteForm",
  *     },
  *     "translation" = "Drupal\content_translation\ContentTranslationController"
  *   },
