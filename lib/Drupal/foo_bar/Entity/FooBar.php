@@ -43,24 +43,21 @@ use Drupal\foo_bar\FooBarInterface;
  * )
  */
 class FooBar extends ContentEntityBase implements FooBarInterface {
+
   /**
    * {@inheritdoc}
    */
   public function id() {
     return $this->get('fbid')->value;
   }
-  /**
-   * {@inheritdoc}
-   */
-  public function uuid() {
-    return $this->uuid->value;
-  }
+
   /**
    * {@inheritdoc}
    */
   public function getFooBarField() {
     return $this->foo_bar_field->value;
   }
+
   /**
    * {@inheritdoc}
    */
