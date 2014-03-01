@@ -26,9 +26,9 @@ use Drupal\foo_bar\FooBarInterface;
  *     "translation" = "Drupal\content_translation\ContentTranslationController"
  *   },
  *   base_table = "foo_bar",
- *   admin_permission = "administer display modes",
+ *   admin_permission = "admin_foo_bar",
  *   fieldable = TRUE,
- *   field_cache = FALSE,
+ *   translatable = TRUE,
  *   entity_keys = {
  *     "id" = "fbid",
  *     "label" = "name",
@@ -47,12 +47,6 @@ class FooBar extends ContentEntityBase implements FooBarInterface {
    */
   public function id() {
     return $this->get('fbid')->value;
-  }
-  /**
-   * {@inheritdoc}
-   */
-  public function uuid() {
-    return $this->uuid->value;
   }
   /**
    * {@inheritdoc}

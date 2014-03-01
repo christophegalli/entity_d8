@@ -34,9 +34,9 @@ foo_bar.delete:
   requirements:
     _permission: 'delete_foo_bar'
 foo_bar.settings:
-  path: 'admin/config/foo_bar_settings'
+  path: 'admin/structure/foo_bar_settings'
   defaults:
-   _form: '\Drupal\foo_bar\Entity\Form\FooBarSettingsForm'
+   _form: '\Drupal\foo_bar\Form\FooBarSettingsForm'
    _title: 'FooBar Settings'
   requirements:
     _permission: 'admin_foo_bar'
