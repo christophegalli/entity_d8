@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\foo_bar\Entity\Frm\FooBarDeleteForm
+ * Contains \Drupal\foo_bar\Entity\Form\FooBarDeleteForm
  */
 
-namespace Drupal\foo_bar\Form;
+namespace Drupal\foo_bar\Entity\Form;
 
 use Drupal\Core\Entity\ContentEntityConfirmFormBase;
 

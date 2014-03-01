@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * Definition of Drupal\foo_bar\Form\FooBarFormController.
+ * Definition of Drupal\foo_bar\Entity\Form\FooBarFormController.
  */
 
-namespace Drupal\foo_bar\Form;
+namespace Drupal\foo_bar\Entity\Form;
 
 use Drupal\Core\Entity\ContentEntityFormController;
 use Drupal\Core\Language\Language;

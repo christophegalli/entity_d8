@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\foo_bar\Controller\FooBarListController.
+ * Contains \Drupal\foo_bar\Entity\Controller\FooBarListController.
  */
 
-namespace Drupal\foo_bar\Controller;
+namespace Drupal\foo_bar\Entity\Controller;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListController;

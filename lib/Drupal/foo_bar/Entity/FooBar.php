@@ -5,11 +5,9 @@
  */
 
 namespace Drupal\foo_bar\Entity;
-
 use Drupal\Core\Field\FieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\foo_bar\FooBarInterface;
-
 /**
  * Defines the Foo Bar entity.
  *
@@ -18,11 +16,12 @@ use Drupal\foo_bar\FooBarInterface;
  *   label = @Translation("FooBar entity"),
  *   controllers = {
  *     "view_builder" = "Drupal\foo_bar\Entity\FooBarViewBuilder",
- *     "list" = "Drupal\foo_bar\Controller\FooBarListController",
+ *     "list" = "Drupal\foo_bar\Entity\Controller\FooBarListController",
+ *
  *     "form" = {
- *       "add" = "Drupal\foo_bar\Form\FooBarFormController",
- *       "edit" = "Drupal\foo_bar\Form\FooBarFormController",
- *       "delete" = "Drupal\foo_bar\Form\FooBarDeleteForm",
+ *       "add" = "Drupal\foo_bar\Entity\Form\FooBarFormController",
+ *       "edit" = "Drupal\foo_bar\Entity\Form\FooBarFormController",
+ *       "delete" = "Drupal\foo_bar\Entity\Form\FooBarDeleteForm",
  *     },
  *     "translation" = "Drupal\content_translation\ContentTranslationController"
  *   },
@@ -43,21 +42,18 @@ use Drupal\foo_bar\FooBarInterface;
  * )
  */
 class FooBar extends ContentEntityBase implements FooBarInterface {
-
   /**
    * {@inheritdoc}
    */
   public function id() {
     return $this->get('fbid')->value;
   }
-
   /**
    * {@inheritdoc}
    */
   public function getFooBarField() {
     return $this->foo_bar_field->value;
   }
-
   /**
    * {@inheritdoc}
    */
