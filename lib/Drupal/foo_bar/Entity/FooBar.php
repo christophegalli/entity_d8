@@ -8,6 +8,7 @@ namespace Drupal\foo_bar\Entity;
 use Drupal\Core\Field\FieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\foo_bar\FooBarInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
 /**
  * Defines the Foo Bar entity.
  *
@@ -57,7 +58,7 @@ class FooBar extends ContentEntityBase implements FooBarInterface {
   /**
    * {@inheritdoc}
    */
-  public static function baseFieldDefinitions($entity_type) {
+  public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields['fbid'] = FieldDefinition::create('integer')
       ->setLabel(t('ID'))
       ->setDescription(t('The ID of the FooBar entity.'))
