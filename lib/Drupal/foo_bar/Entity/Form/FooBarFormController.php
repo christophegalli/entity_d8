@@ -22,16 +22,6 @@ class FooBarFormController extends ContentEntityFormController {
     $form = parent::form($form, $form_state);
     $entity = $this->entity;
 
-    $form['name'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Label'),
-      '#default_value' => $entity->name->value,
-      '#size' => 60,
-      '#maxlength' => 128,
-      '#required' => TRUE,
-      '#weight' => -10,
-    );
-
     $form['user_id'] = array(
       '#type' => 'textfield',
       '#title' => 'UID',
@@ -40,14 +30,6 @@ class FooBarFormController extends ContentEntityFormController {
       '#maxlength' => 128,
       '#required' => TRUE,
       '#weight' => -10,
-    );
-    $form['foo_bar_field'] = array(
-      '#type' => 'textfield',
-      '#title' => t('A field for FooBar'),
-      '#default_value' => $entity->getFooBarField(),
-      '#size' => 60,
-      '#maxlength' => 128,
-      '#weight' => -6,
     );
 
     $form['langcode'] = array(

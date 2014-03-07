@@ -5,6 +5,7 @@
  */
 
 namespace Drupal\foo_bar\Entity;
+use Drupal\Core\Entity\EntityStorageControllerInterface;
 use Drupal\Core\Field\FieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\foo_bar\FooBarInterface;
@@ -16,7 +17,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   id = "foo_bar",
  *   label = @Translation("FooBar entity"),
  *   controllers = {
- *     "view_builder" = "Drupal\foo_bar\Entity\FooBarViewBuilder",
+ *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list" = "Drupal\foo_bar\Entity\Controller\FooBarListController",
  *
  *     "form" = {
@@ -49,12 +50,25 @@ class FooBar extends ContentEntityBase implements FooBarInterface {
   public function id() {
     return $this->get('fbid')->value;
   }
+
   /**
    * {@inheritdoc}
    */
   public function getFooBarField() {
     return $this->foo_bar_field->value;
   }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function preCreate(EntityStorageControllerInterface $storage_controller, array &$values) {
+    parent::preCreate($storage_controller, $values);
+    $values += array(
+      'user_id' => \Drupal::currentUser()->id(),
+    );
+  }
+
+
   /**
    * {@inheritdoc}
    */
@@ -74,21 +88,57 @@ class FooBar extends ContentEntityBase implements FooBarInterface {
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the FooBar entity.'))
       ->setTranslatable(TRUE)
-      ->setPropertyConstraints('value', array('Length' => array('max' => 32)));
+      ->setPropertyConstraints('value', array('Length' => array('max' => 32)))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 255,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -6,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string',
+        'weight' => -6,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['type'] = FieldDefinition::create('string')
       ->setLabel(t('Type'))
       ->setDescription(t('The bundle of the FooBar entity.'))
       ->setRequired(TRUE);
+
     $fields['user_id'] = FieldDefinition::create('entity_reference')
       ->setLabel(t('User ID'))
       ->setDescription(t('The ID of the associated user.'))
       ->setSettings(array('target_type' => 'user'))
       ->setTranslatable(TRUE);
+
     $fields['foo_bar_field'] = FieldDefinition::create('string')
       ->setLabel(t('First FooBar Field'))
       ->setDescription(t('One field of the FooBar entity.'))
       ->setTranslatable(TRUE)
-      ->setPropertyConstraints('value', array('Length' => array('max' => 32)));
+      ->setPropertyConstraints('value', array('Length' => array('max' => 32)))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 255,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'Above',
+        'type' => 'string',
+        'weight' => -5,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string',
+        'weight' => -5,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
     return $fields;
   }
 }
