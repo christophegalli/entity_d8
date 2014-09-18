@@ -2,18 +2,18 @@
 
 /**
  * @file
- * Contains \Drupal\foo_bar\Entity\Controller\FooBarListController.
+ * Contains \Drupal\foo_bar\Entity\Controller\FooBarListBuilder.
  */
 
-namespace Drupal\foo_bar\Entity\Controller;
+namespace Drupal\foo_bar\Entity;
 
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\EntityListController;
+use Drupal\Core\Entity\EntityListBuilder;
 
 /**
- * Provides a list controller for foo_bar entity.
+ * Provides a list builder for foo_bar entity.
  */
-class FooBarListController extends EntityListController {
+class FooBarListBuilder extends EntityListBuilder {
 
   /**
    * {@inheritdoc}

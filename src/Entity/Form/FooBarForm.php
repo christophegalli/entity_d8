@@ -6,18 +6,19 @@
 
 namespace Drupal\foo_bar\Entity\Form;
 
-use Drupal\Core\Entity\ContentEntityFormController;
+use Drupal\Core\Entity\ContentEntityForm;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\Language;
 
 /**
  * Form controller for the foo_bar entity edit forms.
  */
-class FooBarFormController extends ContentEntityFormController {
+class FooBarForm extends ContentEntityForm {
 
   /**
-   * Overrides Drupal\Core\Entity\EntityFormController::form().
+   * Overrides Drupal\Core\Entity\EntityForm::form().
    */
-  public function form(array $form, array &$form_state) {
+  public function form(array $form, FormStateInterface $form_state) {
     /* @var $entity \Drupal\foo_bar\Entity\FooBar */
     $form = parent::form($form, $form_state);
     $entity = $this->entity;
@@ -61,21 +62,12 @@ class FooBarFormController extends ContentEntityFormController {
   }
 
   /**
-   * Overrides \Drupal\Core\Entity\EntityFormController::submit().
+   * Overrides \Drupal\Core\Entity\EntityForm::submit().
    */
-  public function submit(array $form, array &$form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     // Build the entity object from the submitted values.
-    $entity = parent::submit($form, $form_state);
-    $form_state['redirect_route']['route_name'] = 'foo_bar.list';
-
-    return $entity;
+    parent::submitForm($form, $form_state);
+    $form_state->setRedirect('foo_bar.list');
   }
 
-  /**
-   * Overrides Drupal\Core\Entity\EntityFormController::save().
-   */
-  public function save(array $form, array &$form_state) {
-    $entity = $this->entity;
-    $entity->save();
-  }
 }

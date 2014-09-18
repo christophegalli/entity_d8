@@ -5,11 +5,14 @@
  */
 
 namespace Drupal\foo_bar;
-use Drupal\Core\Entity\EntityInterface;
+
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+
 /**
  * Provides an interface defining a Foo Bar entity.
  */
-interface FooBarInterface extends EntityInterface {
+interface FooBarInterface extends ContentEntityInterface {
   /**
    * Returns the identifier.
    *
@@ -43,5 +46,5 @@ interface FooBarInterface extends EntityInterface {
    * @return \Drupal\Core\Field\FieldDefinitionInterface[]
    *   An array of entity field definitions, keyed by field name.
    */
-  public static function baseFieldDefinitions($entity_type);
+  public static function baseFieldDefinitions(EntityTypeInterface$entity_type);
 }
