@@ -8,6 +8,7 @@
 namespace Drupal\foo_bar\Entity;
 
 use Drupal\Core\Entity\EntityViewBuilder;
+use Drupal\Component\Utility\String;
 
 /**
  * Defines an entity view builder for a FooBar entity.
@@ -17,17 +18,18 @@ class FooBarViewBuilder extends EntityViewBuilder {
   /**
    * {@inheritdoc}
    */
-  public function buildContent(array $entities, array $displays, $view_mode, $langcode = NULL) {
-    parent::buildContent($entities, $displays, $view_mode, $langcode);
+  public function buildComponents(array &$build, array $entities, array $displays, $view_mode, $langcode = NULL) {
+    parent::buildComponents($build, $entities, $displays, $view_mode, $langcode);
+
     /* @var $entity \Drupal\foo_bar\Entity\FooBar */
-    foreach ($entities as $entity) {
-      $entity->content['foo_bar']['name'] = array(
-        '#markup' => $entity->name->value,
+    foreach ($entities as $id => $entity) {
+      $build[$id]['name'] = array(
+        '#markup' => String::checkPlain($entity->name->value),
         '#prefix' => '<div class="foo-bar-label">' ,
         '#suffix' => '</div>',
       );
-      $entity->content['foo_bar']['foo_bar_field'] = array(
-        '#markup' => $entity->getFooBarField(),
+      $build[$id]['foo_bar_field'] = array(
+        '#markup' => String::checkPlain($entity->getFooBarField()),
         '#prefix' => '<div class="foo-bar-field">',
         '#suffix' => '</div>',
       );
